@@ -87,9 +87,6 @@
     </table>
 </div>
 
-<#if externalRelevantArticlesDisplayCount?? && 0 != externalRelevantArticlesDisplayCount>
-<div id="externalRelevantArticles" class="row article-relative"></div>
-</#if>
 </#if>
 </#macro>
 

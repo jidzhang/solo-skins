@@ -254,41 +254,6 @@ var MetroHot = {
      * @param {String} tags 文章 tags
      */
     loadExternalRelevantArticles: function(tags) {
-        var tips = this.tips;
-        try {
-            $.ajax({
-                url: "http://rhythm.b3log.org:80/get-articles-by-tags.do?tags=" + tags
-                        + "&blogHost=" + tips.blogHost + "&paginationPageSize=" + tips.externalRelevantArticlesDisplayCount,
-                type: "GET",
-                cache: true,
-                dataType: "jsonp",
-                error: function() {
-                    $("#externalRelevantArticles").remove();
-                },
-                success: function(data, textStatus) {
-                    var articles = data.articles;
-                    if (!articles || 0 === articles.length) {
-                        $("#externalRelevantArticles").remove();
-                        return;
-                    }
-                    var listHtml = "";
-                    for (var i = 0; i < articles.length && i < 5; i++) {
-                        var article = articles[i];
-                        var title = article.articleTitle;
-                        var articleLiHtml = "<li>"
-                                + "<a rel='nofollow' title='" + title + "' target='_blank' href='" + article.articlePermalink + "'>"
-                                + title + "</a></li>";
-                        listHtml += articleLiHtml;
-                    }
-
-                    var randomArticleListHtml = "<ul>" + listHtml + "</ul>";
-                    $("#externalRelevantArticles .text").append(randomArticleListHtml);
-                }
-            });
-        } catch (e) {
-            // 忽略相关文章加载异常：load script error
-            $("#externalRelevantArticles").remove();
-        }
     },
     goCmt: function() {
         $("html, body").animate({

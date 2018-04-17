@@ -68,9 +68,6 @@
         </tr>
     </tbody>
 </table>
-<#if externalRelevantArticlesDisplayCount?? && 0 != externalRelevantArticlesDisplayCount>
-<div id="externalRelevantArticles"></div>
-</#if>
 </#if>
 </#macro>
 

@@ -98,7 +98,6 @@
                     </div>
                     <div id="relevantArticles" class="article-relative"></div>
                     <ol id="randomArticles"></ol>
-                    <ol id="externalRelevantArticles"></ol>
                     <@comments commentList=articleComments article=article></@comments>
                 </article>
                 <#include "side.ftl">
@@ -107,15 +106,11 @@
             <#include "footer.ftl">
         </div>
         <@comment_script oId=article.oId>
-        page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";
         <#if 0 != randomArticlesDisplayCount>
         page.loadRandomArticles();
         </#if>
         <#if 0 != relevantArticlesDisplayCount>
         page.loadRelevantArticles('${article.oId}', '<h4>${relevantArticles1Label}</h4>');
-        </#if>
-        <#if 0 != externalRelevantArticlesDisplayCount>
-        page.loadExternalRelevantArticles("<#list article.articleTags?split(",") as articleTag>${articleTag}<#if articleTag_has_next>,</#if></#list>");
         </#if>
         </@comment_script>    
     </body>

@@ -114,7 +114,6 @@
                             </#if>
                             <div id="randomArticles" class="left article-relative"></div>
                             <div class="clear"></div>
-                            <div id="externalRelevantArticles" class="article-relative"></div>
                         </div>
                         <div class="clear"></div>
                         <@comments commentList=articleComments article=article></@comments>
@@ -132,15 +131,11 @@
             </div>
         </div>
         <@comment_script oId=article.oId>
-        page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";
         <#if 0 != randomArticlesDisplayCount>
         page.loadRandomArticles();
         </#if>
         <#if 0 != relevantArticlesDisplayCount>
         page.loadRelevantArticles('${article.oId}', '<h4>${relevantArticles1Label}</h4>');
-        </#if>
-        <#if 0 != externalRelevantArticlesDisplayCount>
-        page.loadExternalRelevantArticles("<#list article.articleTags?split(",") as articleTag>${articleTag}<#if articleTag_has_next>,</#if></#list>");
         </#if>
         </@comment_script>
         <script>

@@ -84,20 +84,15 @@
                     <li class="noborder"><a href="http://reddit.com/submit?url=${servePath}/?p=12&title=${article.articleTitle}" target="_blank"><img src="${staticServePath}/skins/${skinDirName}/themes/core/core-images/bookmarks/reddit.jpg" alt="" /> Reddit</a></li>
                 </ul>
             </div>
-            <div id="externalRelevantArticles" class="post"></div>
             <@comments commentList=articleComments article=article></@comments>
         </div>
         <#include "footer.ftl">    
         <@comment_script oId=article.oId>
-        page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";
         <#if 0 != randomArticlesDisplayCount>
         page.loadRandomArticles();
         </#if>
         <#if 0 != relevantArticlesDisplayCount>
         page.loadRelevantArticles('${article.oId}', '<h4>${relevantArticles1Label}</h4>');
-        </#if>
-        <#if 0 != externalRelevantArticlesDisplayCount>
-        page.loadExternalRelevantArticles("<#list article.articleTags?split(",") as articleTag>${articleTag}<#if articleTag_has_next>,</#if></#list>");
         </#if>
         </@comment_script>    
     </body>

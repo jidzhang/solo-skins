@@ -117,16 +117,6 @@
         </div>
         </#if>
 
-        <#if externalRelevantArticlesDisplayCount?? && 0 != externalRelevantArticlesDisplayCount>
-        <div id="externalRelevantArticles" class="side-tile article-relative">
-            <span data-ico="&#xe021;"></span>
-            <div class="title">
-                ${externalRelevantArticlesLabel}
-            </div>
-            <div class="text">
-            </div>
-        </div>
-        </#if>
         </#if>
         </#if>
 

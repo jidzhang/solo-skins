@@ -109,17 +109,12 @@
                         </div>
                         </#if>
                     </div>
-                    <div id="externalRelevantArticles"></div>
                     <@comments commentList=articleComments article=article></@comments>
                 </div>
             </div>
         </div>
         <#include "footer.ftl">
         <@comment_script oId=article.oId>
-        page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";
-        <#if 0 != externalRelevantArticlesDisplayCount>
-        page.loadExternalRelevantArticles("<#list article.articleTags?split(",") as articleTag>${articleTag}<#if articleTag_has_next>,</#if></#list>");
-        </#if>
         </@comment_script>    
     </body>
 </html>

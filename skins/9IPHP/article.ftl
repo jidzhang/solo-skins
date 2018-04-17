@@ -116,7 +116,6 @@
                             </div>
                         </footer>
                         <@comments commentList=articleComments article=article></@comments>
-                        <div id="externalRelevantArticles" class="list"></div>
                         <div id="relevantArticles" class="list"></div>
                         <div id="randomArticles" class="list"></div>
                     </article>
@@ -126,13 +125,8 @@
         </div>
         <#include "footer.ftl">
         <@comment_script oId=article.oId>
-        page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";
         <#if 0 != randomArticlesDisplayCount>
         page.loadRandomArticles();
-        </#if>
-        <#if 0 != externalRelevantArticlesDisplayCount>
-        page.loadExternalRelevantArticles("<#list article.articleTags?split(",") as articleTag>${articleTag}<#if articleTag_has_next>,</#if></#list>"
-            , "<header class='title'><h2>${externalRelevantArticlesLabel}</h2></header>");
         </#if>
         <#if 0 != relevantArticlesDisplayCount>
         page.loadRelevantArticles('${article.oId}', '<h4>${relevantArticlesLabel}</h4>');

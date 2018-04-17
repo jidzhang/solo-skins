@@ -71,9 +71,6 @@
         </tbody>
     </table>
 </div>
-<#if externalRelevantArticlesDisplayCount?? && 0 != externalRelevantArticlesDisplayCount>
-<div id="externalRelevantArticles" class="article-relative"></div>
-</#if>
 <span class="clear"></span>
 </#if>
 </#macro>

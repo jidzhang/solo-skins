@@ -112,7 +112,6 @@
 <div class="article__bottom">
     <div class="wrapper">
         <div class="fn-flex footer__tag">
-            <div class="fn-flex-1" id="externalRelevantArticles"></div>
             <div class="fn-flex-1" id="relevantArticles"></div>
             <div class="fn-flex-1" id="randomArticles"></div>
         </div>
@@ -232,13 +231,8 @@
     Skin.initArticle();
 </script>
 <@comment_script oId=article.oId>
-    page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";
     <#if 0 != randomArticlesDisplayCount>
     page.loadRandomArticles("<div class='module__title'><span>${randomArticlesLabel}</span></div>");
-    </#if>
-    <#if 0 != externalRelevantArticlesDisplayCount>
-    page.loadExternalRelevantArticles("<#list article.articleTags?split(",") as articleTag>${articleTag}<#if articleTag_has_next>,</#if></#list>"
-    , "<div class='module__title'><span>${externalRelevantArticlesLabel}</span></div>");
     </#if>
     <#if 0 != relevantArticlesDisplayCount>
     page.loadRelevantArticles('${article.oId}', '<div class="module__title"><span>${relevantArticlesLabel}</span></div>');
